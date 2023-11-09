@@ -18,9 +18,11 @@ footer{
     background: linear-gradient(to top left, pink, yellow, pink, purple);
     margin: 10px 5px;
     padding: 10px 0;
+    border-top: 3px solid purple;
     color: purple;
     text-align: center;
-    border-top: 3px solid purple;
+    font-size: 80%;
+    clear: both;
 }
 
 nav {
