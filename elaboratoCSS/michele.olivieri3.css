@@ -6,51 +6,48 @@ body {
 }
 
 header{
-    clear:both;
     background: linear-gradient(to bottom right, pink, yellow, pink, purple);
-    width: auto;
+    margin: 10px 5px;
+    padding: 15px 0;
+    border-bottom: 3px solid purple;
     color: purple;
     text-align: right;
-    padding: 15px 0;
-    margin: 10px 5px;
-    border-bottom: 3px solid purple;
 }
 
 footer{
     background: linear-gradient(to top left, pink, yellow, pink, purple);
-    width: 100%;
+    margin: 10px 5px;
+    padding: 10px 0;
     color: purple;
     text-align: center;
-    padding: 10px 0;
-    margin: 10px 5px;
     border-top: 3px solid purple;
-    clear: both;
 }
 
 nav {
+    float: left;
+    width: 15%;
+    margin: 10px 15px;
+    padding: 5px;
     background: linear-gradient(to bottom right, pink, yellow, pink, purple);
     border-color: purple;
     border-style: solid;
     border-width: 3px 0px;
-    float: left;
-    width: 15%;
-    margin: 10px;
-    padding: 5px;
 }
 
 nav:hover {
     background: linear-gradient(to top left, pink, yellow, pink, purple);
 }
 
-nav a{
+nav ul li {
+    list-style: square;
     line-height: 2;
 }
 
-nav a:hover {
-    color: #fff;
+nav ul li a:hover {
     background-color: purple;
-    padding: 1%;
+    color: #fff;
     font-weight: bold;
+    padding: 1%;
 }
 
 section {
@@ -65,5 +62,8 @@ aside {
     width: 20%;
     margin: 10px;
     padding: 5px;
+}
+
+aside p {
     color: purple;
 }
