@@ -1,0 +1,12 @@
+I tre standard che sono alla base del funzionamento del Web sono: HTTP, URL e HTML.
+
+HTTP (HyperText Transfer Protocol):
+è il protocollo di comunicazione che consente il trasferimento di informazioni sul web. Definisce la sintassi e la semantica per la comunicazione tra client e server. Quando si digita un URL nel browser avviene una richiesta http da parte del client che attiva la connessione e richiede dei servizi al server, il quale accetta la connessione e risopnde alla richiesta (tipicamente la visualizzazione di pagine web). Essendo statlessness la gestione della sessione è mediata con i cookies.
+
+HTML (Hypertext Markup Language):
+è un linguaggio di markup che definisce la struttura di base delle pagine web. un linguaggio di markup è un linguaggio che consente di annotare un documento fornendone una interpretazione delle sue parti. Utilizza tag e attributi per identificare e organizzare il contenuto della pagina, come testo, file multimediali e collegamenti ipertestuali. I browser poi interpretano le pagine web in modo leggibile e interativo per l'utente.
+
+URL (Uniform Resource Locator):
+sono gli indirizzi che identificano in modo univoco le risorse sul web. Comprendono diversi componenti, come il protocollo utilizzato (solitamente HTTP o HTTPS), il nome di dominio (ad esempio, www.example.com) e il percorso della risorsa specifica. Gli URL consentono ai browser di localizzare e accedere alle risorse desiderate su Internet.
+
+Questi standard sono essenziali per la comunicazione, la presentazione e l'accesso alle risorse sul web, fornendo un fondamento tecnologico per il world wild web.
