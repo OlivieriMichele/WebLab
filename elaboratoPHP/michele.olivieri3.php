@@ -21,10 +21,15 @@
         die("connection failed" . $db->connect_error);
     }
 
-    // Controllare che le variabili A e B non siano nulle e che siano valide
-    function validateNum($num){
-        //TODO
-        return $num >= 0 ? $num : null;
+    // calcola l'id di valore massimo massimo
+    $maxId = $db->query("SELECT MAX(id) as max_id FROM insiemi");
+
+    // calcola l'insieme con indice massimo
+    $maxIndex = $db->query("SELECT MAX(insieme) as max_index FROM insiemi");
+
+    // Controllare che le variabili A e B non siano nulle e che siano valide, ovvero che siano numeri positivi e che sul db ci siano numeri appartenenti a quell'insieme.
+    function validateNum($num, $max_index){
+        return $num >= 0 && $num <= $max_index? $num : null;
     }
 
     // Controllare che la variabile "O" non sia nulla e che sia uguale a "i" o "u".
@@ -33,23 +38,23 @@
     }
 
     if (isset($_GET['A']) && isset($_GET['B']) && isset($_GET['O'])) {
-        $A = validateNum($_GET['A']);
-        $B = validateNum($_GET['B']);
+        $row = $maxIndex->fetch_assoc();
+        $max_index = $row['max_index'];
+        $A = validateNum($_GET['A'], $max_index);
+        $B = validateNum($_GET['B'], $max_index);
         $O = validate($_GET['O']);
 
         if($A!==null && $B!==null && $O!==null){
             
             // Leggere tutti i numeri appartenenti a ciascun insieme (A e B) su database e inserirli in due vettori distinti.
-            $queryA = "SELECT valore FROM insiemi WHERE insieme = '$A'";
-            $resultA = $db->query($queryA);
+            $resultA = $db->query("SELECT valore FROM insiemi WHERE insieme = '$A'");
             $insiemeA = [];
 
             while($row = $resultA->fetch_assoc()){
                 $insiemeA[] = $row['valore'];
             }
 
-            $queryB = "SELECT valore FROM insiemi WHERE insieme = '$B'";
-            $resultB = $db->query($queryB);
+            $resultB = $db->query("SELECT valore FROM insiemi WHERE insieme = '$B'");
             $insiemeB = [];
 
             while($row = $resultB->fetch_assoc()){
@@ -61,25 +66,13 @@
             $nuovoInsieme = ($O === 'u') ? array_unique(array_merge($insiemeA,$insiemeB)) : (array_intersect($insiemeA,$insiemeB));
             
             // Inserire sul db il nuovo insieme, usando come id dell'insieme il successivo all'id massimo.
-            $maxIdQuery = "SELECT MAX(id) as max_id FROM insiemi";
-            $maxIdResult = $db->query($maxIdQuery);
-            $row = $maxIdResult->fetch_assoc();
+            $row = $maxId->fetch_assoc();
             $newId = $row['max_id'] + 1;
-
-            $numIndex = "SELECT MAX(insieme) as max_index FROM insiemi";
-            $maxIndexResult = $db->query($numIndex);
-            $row = $maxIndexResult->fetch_assoc();
-            $C = $row['max_index'] + 1;
-
+            $newIndex = $max_index + 1;
             foreach ($nuovoInsieme as $elem) {
-                $insertQuery = "INSERT INTO insiemi (id, valore, insieme) VALUES ($newId, '$elem', $C)";
+                $insertQuery = "INSERT INTO insiemi (id, valore, insieme) VALUES ($newId, '$elem', $newIndex)";
                 $db->query($insertQuery);
                 $newId++;
-            }
-
-            /* test */
-            foreach($nuovoInsieme as $elem){
-                echo " $elem ";
             }
 
         } else {
