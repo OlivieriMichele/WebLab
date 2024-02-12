@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td{
+            border: solid 1px black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Appelli d'esame</caption>
+        <thead>
+            <tr>
+                <th id="giorno">Girono</th>
+                <th id="aula">Aula</th>
+                <th id="9_10">9:00 - 10:00</th>
+                <th id="10_11">10:00 - 11:00</th>
+                <th id="11_12">11:00 - 12:00</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="lunedì" headers="girono" rowspan="2">Lunedì</th>
+                <td headers="lunedì aula">Aula 2.9</td>
+                <td headers="lunedì 9_10 10_11" colspan="2">Sistemi Operativi</td>
+                <td headers="lunedì 11_12">Informatica e diritto</td>
+            </tr>
+            <tr>
+                <td headers="lunedì aula">Laboratorio 3.1</td>
+                <td headers="lunedì 9_10">Reti di telecomincazione</td>
+                <td headers="lunedì 10_11 11_12" colspan="2">Basi di dati</td>
+            </tr>
+            <tr>
+                <th id="martedì" headers="girono" rowspan="2">Martedì</th>
+                <td headers="martedì aula">Aula 2.5</td>
+                <td headers="martedì 9_10">Programmazione</td>
+                <td headers="martedì 10_11">Analisi Matematica</td>
+                <td headers="martedì 11_12">Algoritmi e strutture dati</td>
+            </tr>
+            <tr>
+                <td>Laboratorio 3.3</td>
+                <td headers="martedì 9_10 10_11" colspan="2">Tecnologie Web</td>
+                <td headers="martedì 11_12">Programmazione ad oggetti</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
