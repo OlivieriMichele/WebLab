@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acquisto libri di testo</title>
+</head>
+<body>
+    <form action="" method="get">
+
+        <!-- gruppo di campi per la selezione dei titoli -->
+        <fieldset>
+            <legend>Seleziona il titolo</legend>
+
+            <label>
+                <input type="checkbox" name="title" value="sistemi_operativi">
+                Sistemi operativi. Concetti ed esempi, di Abraham Silberschatz et al.
+            </label><br>
+
+            <label>
+                <input type="checkbox" name="titolo" value="linguaggi_programmazione">
+                Linguaggi di programmazione. Principi e paradigmi, di Maurizio Gabbrielli e Simone Martini
+              </label><br>
+
+              <label>
+                <input type="checkbox" name="titolo" value="moderni_sistemi_operativi">
+                I moderni sistemi operativi, di Andrew Tanenbaum
+              </label><br>
+        
+              <label>
+                <input type="checkbox" name="titolo" value="fondamenti_reticoli">
+                Fondamenti di reti di calcolatori, di Andrew Tanenbaum
+              </label><br>
+
+        </fieldset>
+
+        <!-- gruppo di campi per il tipo di formato-->
+        <fieldset>
+            <legend>Tipo di formato</legend>
+
+            <label>
+                <input type="radio" name="formato" value="flessibile">
+                copertina flessibile
+            </label><br>
+
+            <label>
+                <input type="radio" name="formato" value="rigida">
+                copertina rigida
+            </label><br>
+
+            <label>
+                <input type="radio" name="formato" value="elettronico">
+                formato elettronico
+            </label><br>
+
+        </fieldset>
+
+        <!-- gruppo di campi per la consegna -->
+        <fieldset>
+            <legend>Consegna</legend>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br>
+            
+            <label for="cognome">Cognome:</label>
+            <input type="text" id="cognome" name="cognome" required><br>
+            
+            <label for="via">via:</label>
+            <input type="text" id="via" name="via" required><br>
+            
+            <label for="ncivico">n. civico:</label>
+            <input type="text" id="ncivico" name="ncivico" required><br>
+            
+            <label for="città">Città:</label>
+            <input type="text" id="città" name="città" required><br>
+
+            <label>
+                <input type="radio" name="orario_consegna" value="flessibile">
+                Orario Flessibile
+              </label><br>
+
+        </fieldset>
+
+        <!-- pagamento alla consegna -->
+        <label>
+            <input type="checkbox" name="pagamento" value="alla_consegna">
+            pagamento alla consegna
+        </label><br>
+
+        <!-- pulsante di invio -->
+        <input type="submit" value="Conferma Acquisto">
+
+    </form>
+</body>
+</html>
